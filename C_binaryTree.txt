@@ -1,0 +1,27 @@
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.children = []
+ 
+def tree(li):
+
+//Node(3),Node(5),Node(8),Node(12),Node(15),Node(18),Node(21)
+    nodes = [Node(i) for i in li]
+    for i in range(1, len(li)):
+
+    //Node(3) - child(5),child(8) Node(5) - child(12),child(15) Node(8) - child(18),child(21)
+        nodes[(i - 1) // 2].children.append(nodes[i])
+    return nodes[0]
+ 
+def calc(node, level=0):
+    if node is None:
+        return 0
+
+        //홀수 레벨 자식 노드 더한 값 출력
+    return (node.value if level % 2 == 1 else 0) + sum(calc(n, level + 1) for n in node.children)
+ 
+li = [3, 5, 8, 12, 15, 18, 21]
+ 
+root = tree(li)
+ 
+print(calc(root)) 
