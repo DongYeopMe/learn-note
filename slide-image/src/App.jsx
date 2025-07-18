@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Slide from "./Slide_v1";
+import Slide from "./Slide_v2";
 
 function App() {
   return (
